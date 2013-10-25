@@ -1,4 +1,4 @@
-#Git repo for the triangle team - DEFENCE!
+#Git repo for the triangle team - DEFENSE!
 <b>DO NOT MAKE CHANGES TO THE MASTER BRANCH! SEE BELOW FOR WHERE TO MAKE YOUR CHANGES.</b>
 ##Branches  
 The development branch is where you should be making your changes. Anything goes here - this branch is for active development.  
