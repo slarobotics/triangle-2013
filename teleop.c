@@ -28,7 +28,6 @@
 #include "JoystickDriver.c"
 
 
-
 void initcontrol(){
 	  int threshold = 10;         /* Int 'threshold' will allow us to ignore low
                                     readings that keep our robot in perpetual motion.
@@ -60,29 +59,23 @@ void initcontrol(){
 
     if(joy1Btn(7) == 1){
     	motor[motorB] = 100;
-  	}else{
-  		motor[motorB] = 0;
   	}
-
-  	if(joy1Btn(8) == 1){
+  	else if(joy1Btn(8) == 1){
   		motor[motorB] = -100;
-  	} else {
+  	}
+  	else{
   		motor[motorB] = 0;
   	}
 
   	if(joy1Btn(1) == 1){
   		motor[motorD] = 75;
-  	}else{
-  		motor[motorD] = 0;
   	}
-
-  	if(joy1Btn(3) == 1){
+  	else if(joy1Btn(3) == 1){
   		motor[motorD] = -75;
   	}
   	else{
   		motor[motorD] = 0;
   	}
-
 
   }
 }
