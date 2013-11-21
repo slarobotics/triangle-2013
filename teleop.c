@@ -1,9 +1,9 @@
 #pragma config(Hubs,  S1, MatrxRbtcs, none,     none,     none)
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Motor,  mtr_Matrix_S1_1, motorA,        tmotorMatrix, openLoop, reversed)
-#pragma config(Motor,  mtr_Matrix_S1_2, motorB,        tmotorMatrix, openLoop)
-#pragma config(Motor,  mtr_Matrix_S1_3, motorC,        tmotorMatrix, openLoop, reversed)
-#pragma config(Motor,  mtr_Matrix_S1_4, motorD,        tmotorMatrix, openLoop)
+#pragma config(Motor,  mtr_Matrix_S1_1, motorE,        tmotorMatrix, openLoop, reversed)
+#pragma config(Motor,  mtr_Matrix_S1_2, motorF,        tmotorMatrix, openLoop)
+#pragma config(Motor,  mtr_Matrix_S1_3, motorG,        tmotorMatrix, openLoop, reversed)
+#pragma config(Motor,  mtr_Matrix_S1_4, motorH,        tmotorMatrix, openLoop)
 #pragma config(Servo,  srvo_Matrix_S1_1, servo1,               tServoNone)
 #pragma config(Servo,  srvo_Matrix_S1_2, servo2,               tServoStandard)
 #pragma config(Servo,  srvo_Matrix_S1_3, servo3,               tServoNone)
@@ -38,36 +38,36 @@ void initcontrol(){
     getJoystickSettings(joystick); // get joystick readings
     if(abs(joystick.joy1_y1) > threshold)   // If the right analog stick's Y-axis readings are either above or below the threshold:
     {
-      motor[motorA] = joystick.joy1_y1;
+      motor[motorE] = joystick.joy1_y1;
 
     }
     else                                    // Else if the readings are within the threshold:
     {
-      motor[motorA] = 0;
+      motor[motorE] = 0;
 
     }
 
 
     if(abs(joystick.joy1_y2) > threshold)   // If the left analog stick's Y-axis readings are either above or below the threshold:
     {
-      motor[motorC] = -joystick.joy1_y2;
+      motor[motorG] = -joystick.joy1_y2;
     }
     else                                    // Else if the readings are within the threshold:
     {
-      motor[motorC] = 0;
+      motor[motorG] = 0;
     }
 
     if(joy1Btn(5) == 1){ //climber
-    	motor[motorB] = 100;
-    	motor[motorD] = 100;
+    	motor[motorF] = 100;
+    	motor[motorH] = 100;
   	}
   	else if(joy1Btn(6) == 1){
-  		motor[motorB] = -100;
-  		motor[motorD] = -100;
+  		motor[motorF] = -100;
+  		motor[motorH] = -100;
   	}
   	else{
-  		motor[motorB] = 0;
-  		motor[motorD] = 0;
+  		motor[motorF] = 0;
+  		motor[motorH] = 0;
   	}
 
   	if(joy1Btn(8) == 1){//dumper
@@ -80,13 +80,13 @@ void initcontrol(){
   		servo[servo2] = 0;
   	}
 
-  /*	if(joy1Btn(4) == 1){
-  		servo[servo4] = 40;
+  	if(joy1Btn(4) == 1){
+  		motor[motorA] = 40;
   	}
   	else if(joy1Btn(2)){
-  		servo[servo4] = -40;
+  		motor[motorA] = -40;
   	}
-  	else servo[servo4] = 0;*/
+  	else motor[motorA] = 0;
 
 
   }
