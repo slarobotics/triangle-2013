@@ -40,8 +40,10 @@ task main()
 			writeDebugStream("\ni is %d", i);
 			writeDebugStream("\nac[i] - ac[i - 1] is %d", ac[i] - ac[i - 1]);
 			if(ac[i] - ac[i - 1] > 120){ // this is just a guess, we need to test this
+				if(i != 0){
 				power = 0;
 				atIR = true;
+			}
 			/*	if(i > 3) power = -30;
 				if(i == 3){
 					power = 0;
