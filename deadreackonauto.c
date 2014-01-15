@@ -9,7 +9,7 @@
 #pragma config(Servo,  srvo_Matrix_S1_2, servo2,               tServoStandard)
 #pragma config(Servo,  srvo_Matrix_S1_3, servo3,               tServoNone)
 #pragma config(Servo,  srvo_Matrix_S1_4, servo4,               tServoNone)
-
+#include "JoystickDriver.c"
 void drive(int powerL, int powerR);
 task main()
 {
