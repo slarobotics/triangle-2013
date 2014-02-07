@@ -14,23 +14,11 @@ void drive(int powerL, int powerR);
 task main()
 {
 	waitForStart();
-	drive(100, 100); //drive forward 3 seconds
+	drive(-100, -25);
 	wait10Msec(300);
-
-	drive(100, -100); //90 degree turn, tweak delay as necessary
-	wait10Msec(100);
-
-	drive(100, 100);
-	wait10Msec(100);
-
-	drive(100, -100); //90 degree turn, tweak delay as necessary
-	wait10Msec(100);
-
-	drive(100, 100);
-	wait10Msec(100);
 }
 
 void drive(int powerL, int powerR){
-	motor[motorE] = -powerL;
-	motor[motorG] = powerR;
+	motor[motorF] = -powerL;
+	motor[motorH] = powerR;
 }
