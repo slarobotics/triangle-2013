@@ -1,9 +1,9 @@
 #pragma config(Hubs,  S1, MatrxRbtcs, none,     none,     none)
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Motor,  mtr_Matrix_S1_1, motorE,        tmotorMatrix, openLoop)
-#pragma config(Motor,  mtr_Matrix_S1_2, motorF,        tmotorMatrix, openLoop, reversed)
-#pragma config(Motor,  mtr_Matrix_S1_3, motorG,        tmotorMatrix, openLoop)
-#pragma config(Motor,  mtr_Matrix_S1_4, motorH,        tmotorMatrix, openLoop, reversed)
+#pragma config(Motor,  mtr_Matrix_S1_1, motorF,        tmotorMatrix, openLoop)
+#pragma config(Motor,  mtr_Matrix_S1_2, motorH,        tmotorMatrix, openLoop, reversed)
+#pragma config(Motor,  mtr_Matrix_S1_3, motorE,        tmotorMatrix, openLoop)
+#pragma config(Motor,  mtr_Matrix_S1_4, motorG,        tmotorMatrix, openLoop)
 #pragma config(Servo,  srvo_Matrix_S1_1, servo1,               tServoNone)
 #pragma config(Servo,  srvo_Matrix_S1_2, servo2,               tServoStandard)
 #pragma config(Servo,  srvo_Matrix_S1_3, servo3,               tServoNone)
@@ -50,25 +50,22 @@ void initcontrol(){
 
     if(abs(joystick.joy1_y2) > threshold)   // If the left analog stick's Y-axis readings are either above or below the threshold:
     {
-      motor[motorH] -joystick.joy1_y2;
+      motor[motorH] = joystick.joy1_y2;
     }
     else                                    // Else if the readings are within the threshold:
     {
       motor[motorH] = 0;
     }
 
-    if(joy1Btn(5) == 1){ //climber
-    	motor[motorF] = 100;
-    	motor[motorH] = 100;
+    if(joy1Btn(5) == 1){
+    	motor[motorE] = 100;
   	}
   	else if(joy1Btn(6) == 1){
-  		motor[motorF] = -100;
-  		motor[motorH] = -100;
+  		motor[motorE] = -100;
   	}
   	else{
-  		motor[motorF] = 0;
-  		motor[motorH] = 0;
-  	}
+  		motor[motorE] = 0;
+  	}/*
 
   	if(joy1Btn(8) == 1){//dumper
  			servo[servo2] = 40;
@@ -86,7 +83,7 @@ void initcontrol(){
   	else if(joy1Btn(2)){
   		motor[motorA] = -40;
   	}
-  	else motor[motorA] = 0;
+  	else motor[motorA] = 0;*/
 
 
   }
